@@ -184,9 +184,7 @@
                     <div class="menu-container" style='-webkit-overflow-scrolling:touch;'>
                         <ul>
                             <li> <a href="{{route('dashboard')}}">dashboard</a> </li>
-                            <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
-                            <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
-                            <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>
+							<li> <a href="{{url('game')}}">select your game</a> </li>
                             <li> <a href="{{route('buytokenview')}}">buy tokens</a> </li>
                             <li > <a style="text-transform: none" href="{{route('faq')}}">FAQ's</a> </li>
 							<li > <a style="text-transform: none" href="{{route('how_play')}}">how to play</a> </li>
