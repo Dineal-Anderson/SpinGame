@@ -71,9 +71,14 @@
                 <div class="menu-container" style='-webkit-overflow-scrolling:touch;'>
                     <ul>
                         <li> <a href="{{route('dashboard')}}">dashboard</a> </li>
-                        <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
-                        <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
-                        <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select your game <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
+                                <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
+                                <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>
+                            </ul>
+                        </li>
                         <li> <a href="{{route('buytokenview')}}">buy tokens</a> </li>
                         <li> <a style="text-transform: none" href="{{route('faq')}}">FAQ's</a> </li>
                         <li > <a style="text-transform: none" href="{{route('how_play')}}">how to play</a> </li>
@@ -189,6 +194,9 @@
                                 margin-top: 2%;
                                 margin-left: 0;
                             }
+                        }
+                        @media (max-width: 359px){
+                            body{display:none;}
                         }
             </style>
             <script>
@@ -309,7 +317,7 @@
                              margin-top: 0!important;
                         }
                         .modal-body {
-                            padding: 0!important;
+                            padding: 1!important;
                         }
                 </style>
                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -715,9 +723,9 @@
                                 </script>
                                                 
                             </div>
-                            <div class="modal-footer" style="display:none;">
+                            <div class="modal-footer" style="padding-right: 30px;">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                             </div>
                         </div>
                     </div>

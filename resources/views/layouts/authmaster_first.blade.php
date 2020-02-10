@@ -16,6 +16,7 @@
         <!-- <link rel="stylesheet" href="{{asset('css/loader.css')}}"> -->
         <script src="{{asset('plugins/jquery/jquery-3.3.1.min.js')}}" charset="utf-8"></script>
         <script src="{{asset('plugins/swal/sweetalert2.min.js')}}" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}" charset="utf-8"></script>
         <script src="{{asset('plugins/validator/jquery.validate.min.js')}}" charset="utf-8"></script>
         
@@ -31,6 +32,7 @@
         <script src="{{asset('html/plugins/validator/jquery.validate.min.js')}} charset="utf-8"></script>
          -->
         @yield('page_style')
+        <script data-ad-client="ca-pub-7269954483216817" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <body>
         <audio id="audio_bgm" loop>

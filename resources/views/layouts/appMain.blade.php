@@ -5,7 +5,7 @@
         <title>@yield('page_title') | AwoofSpin Game</title>
         <meta name="google-site-verification" content="TUmmPtaQnt3okYWDaMejEY-_U_yErtm5dtfia5BUJk8" />
         <meta name="keywords" content="simple awoofspin game,best awoofspin game of nigeria," />
-        <meta name="description" content="Best spin game site for Nigeria.For a chance to win 150k and other fantastic prizes play">
+        <meta name="description" content="Best spin game site for Nigeria.For a chance to win 150k and other fantastic prizes sign up and play">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -21,6 +21,7 @@
         @yield('page_style')
         <script src="{{asset('plugins/jquery/jquery-3.3.1.min.js')}}" charset="utf-8"></script>
         <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}" charset="utf-8"></script>
         <script src="{{asset('plugins/swal/sweetalert2.min.js')}}" charset="utf-8"></script>
         <!-- countdown timer plugin -->

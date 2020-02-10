@@ -53,12 +53,39 @@ class LoginController extends Controller
                 
                 User::where('email', $request->email)->update(['token_count'=> $user_data->token_count + $add_token, 'spin_for_invite' => $remainder_spin]);
             }
-            $result_array = array('result' => 'success', 'url' => route('home'));
+            $result_array = array('result' => 'success', 'url' => route('home'), 'api_token' => $user_data->api_token);
             return response()->json($result_array);
         }
 
         $result_array = array('result' => 'fail');
         return response()->json($result_array);
+    }
+    
+    public function login_api(Request $request){
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            $user = $this->guard()->user();
+            $user->generateToken();
+
+            return response()->json([
+                'data' => $user->toArray(),
+            ]);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    public function logout(Request $request)
+    {
+        $user = Auth::guard('api')->user();
+
+        if ($user) {
+            $user->api_token = null;
+            $user->save();
+        }
+
+        return response()->json(['data' => 'User logged out.'], 200);
     }
     /**
  * Attempt to log the user into the application.

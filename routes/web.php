@@ -68,7 +68,7 @@ Route::get('/accept/{token}', 'InviteController@accept')->name('accept');
 
 Route::get('/miscajax/buytokenconfirm', 'MiscajaxController@buyTokenVerify')->name('buytokenconfirm');
 
-Route::get('/game/{type}', 'HomeController@showgameList')->name('game.choose');
+Route::get('/game', 'HomeController@showgameList')->name('game.choose');
 Route::post('/miscajax/setbgmon', 'MiscajaxController@setBgmon')->name('setbgmonpost');
 Route::get('/miscajax/getprizeindex', 'MiscajaxController@getPrizeIndex')->name('getprizeindex');
 Route::post('/miscajax/mailToWinner', 'MiscajaxController@mailToWinner')->name('mailtowinner');

@@ -2,6 +2,9 @@
 @section('page_title') Buy Token @endsection
 @section('page_style')
 <style>
+      body {
+                font-family: 'Lemon/Milk Bold';
+            }
             input[type="number"]::-webkit-outer-spin-button,
             input[type="number"]::-webkit-inner-spin-button {
                 -webkit-appearance: none;
@@ -232,6 +235,12 @@
                     text-align: center;
                     top: 31px;
                 }
+                .subtitle {
+                    font-size: 13pt;
+                }
+                .buytoken_box {
+                    margin-top: 65px;
+                }   
                 .sound-icon-container {
                     width: 13px;
                     height: 30px;
@@ -288,7 +297,7 @@
                 }
 
                 .halftoken_price {
-                    margin-top: -14px !important;
+                    margin-top: 0px !important;
                 }
 
                 .buytoken_input {
@@ -306,7 +315,7 @@
                     width: 100%;
                     height: 110px;
                     margin: 0 auto;
-                    margin-top: 42px;
+                    margin-top: 65px;
                     background: url({{asset('images/buytoken_bg_1px.png')}});
                     background-size: auto;
                     background-repeat: repeat-x;
@@ -389,11 +398,18 @@
                     <div class="menu-container" style="-webkit-overflow-scrolling:touch;">
                         <ul>
                         <li> <a href="{{route('dashboard')}}">dashboard</a> </li>
-                            <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
-                            <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
-                            <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select your game <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
+                                <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
+                                <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>    
+                            </ul>
+                        </li>
+                        
                             <li> <a href="{{url('home/buytokenview')}}">buy tokens</a> </li>
                             <li > <a style="text-transform: none" href="{{route('faq')}}">FAQ's</a> </li>
+                            <li > <a style="text-transform: none" href="{{route('how_play')}}">how to play</a> </li>
                             <li> <a href="{{url('invite')}}">Invite Friends</a> </li>
                             <li> <a href="{{route('contact')}}">Contact Us</a> </li>
                             <li>

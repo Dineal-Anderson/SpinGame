@@ -102,4 +102,36 @@ class WelcomeController {
         // Auth::user()->notify(new SprizeWon('Present'));
       return response()->json(['result'=>'successful!']);
     }
+
+
+    public function index_api(){
+        $users=DB::table('users')->orderBy('id', 'desc')->get();
+        $prizes = DB::table('prizes')->orderBy('id', 'desc')->get();
+        $query="SELECT user_prize_won.spin_index,user_prize_won.created_at,users.firstname,users.lastname,users.email,prizes.prize_name,prizes.img_url FROM user_prize_won INNER JOIN users ON(user_prize_won.user_id=users.id) INNER JOIN prizes ON(user_prize_won.prize_id=prizes.id) WHERE YEARWEEK(user_prize_won.created_at) = YEARWEEK(NOW())";
+        $thisweek_prize_winners=DB::select($query);
+        $data['winners']=$thisweek_prize_winners;
+        //Dynamic images array path
+        $dir = public_path().'/uploads/scroll_images/';
+        $data['imgs_array'] = glob($dir.'*.*');
+        // Static image path
+        $static_dir = public_path().'/uploads/static_image/';
+        $data['staticImgs_array'] = glob($static_dir.'*.*');
+        $myfile = fopen("scroll_text.txt", "r") or die("Unable to open file!");
+        $data['scroll_text'] = fread($myfile,filesize("scroll_text.txt"));
+        fclose($myfile);
+        return response()->json([
+            [ 'dynamicImg_array' => $data['imgs_array'], 'staticImgs_array' => $data['staticImgs_array'] ],
+            [ 'scroll_text' => $data['scroll_text'], 'winners' => $data['winners'] ]
+        ]); 
+        // $payload =  [ 'dynamicImg_array' => $data['imgs_array'], 'staticImgs_array' => $data['staticImgs_array'],
+        //              'scroll_text' => $data['scroll_text'], 'winners' => $data['winners'] ];
+        // $token = $user->generateToken();
+        // $headers = ['Authorization' => "Bearer $token"]; 
+
+        // return json('GET', '/api/home', $payload, $headers)
+        //     ->assertStatus(200)
+        //     ->assertJson();
+        
+    }
 }
+

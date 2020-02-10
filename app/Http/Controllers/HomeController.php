@@ -43,25 +43,26 @@ class HomeController extends Controller
         $is_half_token = $float_token - intval($float_token);
         return view('buytokenview', ['user' => $user, 'token_count'=>$user->token_count, 'is_half_token' => $is_half_token]);
     }
-    public function showgameList($type)
+    public function showgameList()
     {
         $user = Auth::user();
-        $category=1;
-        $style_text = "game_style_img_lifestyle.png";
-        if ($type == "electronics") {
-            $category=2;
-            $style_text = "game_style_img_electronics.png";
-        } elseif ($type == "eating") {
-            $category=3;
-            $style_text = "game_style_img_eating_and_drinking.png";
-        }
+        // $category=1;
+        // $style_text = "game_style_img_lifestyle.png";
+        // if ($type == "electronics") {
+        //     $category=2;
+        //     $style_text = "game_style_img_electronics.png";
+        // } elseif ($type == "eating") {
+        //     $category=3;
+        //     $style_text = "game_style_img_eating_and_drinking.png";
+        // }
      
         $current_time_str=date('Y-m-d H:i:s',time()+3600);
-        $addprizes = DB::select("SELECT * FROM prizes WHERE start_time > '".$current_time_str."'AND  prize_category=".$category);
+        $addprizes = DB::select("SELECT * FROM prizes WHERE start_time > '".$current_time_str."'");
+        
         $addprizes = array_map(function ($value) {
             return (array)$value;
         }, $addprizes);
-        $prizes=DB::select("SELECT * FROM prizes WHERE start_time<='".$current_time_str."' AND expire_time>'".$current_time_str."' AND  prize_category=".$category);
+        $prizes=DB::select("SELECT * FROM prizes WHERE start_time<='".$current_time_str."' AND expire_time>'".$current_time_str."'");
         $prizes = array_map(function ($value) {
             return (array)$value;
         }, $prizes);
@@ -98,7 +99,7 @@ class HomeController extends Controller
             // code...
           }
         }
-        return view('gameList', ['style' => $style_text,'user_prize_spin_counts'=>$user_prize_spin_counts,'user_info'=>$user,'prizes'=>$prizes, 'addprizes' => $addprizes]);
+        return view('gameList', ['user_prize_spin_counts'=>$user_prize_spin_counts,'user_info'=>$user,'prizes'=>$prizes, 'addprizes' => $addprizes]);
     }
     public function spinroom(Request $request){
         $user = Auth::user();

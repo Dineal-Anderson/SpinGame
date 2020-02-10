@@ -68,7 +68,7 @@
         <div class="main-container home-screen">
             <div class="container background-spin-img-container" style="position: relative;">
                 <div class="row navbar-container" style="border: 6px dotted #feec8c;">
-                    <span class="username_nav" style="text-align: center;"><img src="{{asset('html/images/'.$style)}}" class="open_btn" style="text-align: center;width: 35%;" alt="" /></span>
+                    <span class="username_nav" style="text-align: center;"></span>
                     <span class="choosegame_nav">Choose your game</span>
                     <div class="hamburger-btn-container" id="sidebar_click_btn">
                         <img src="{{asset('html/images/hamburger_btn.png')}}" class="open_btn" alt="" />
@@ -84,10 +84,15 @@
                     <div class="overlay"></div>
                     <div class="menu-container" style="-webkit-overflow-scrolling:touch;">
                         <ul>
-                        <li> <a href="{{route('dashboard')}}">dashboard</a> </li>
-                            <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
-                            <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
-                            <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>
+                            <li> <a href="{{route('dashboard')}}">dashboard</a> </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select your game <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li> <a href="{{url('game/lifestyle')}}">lifestyle</a> </li>
+                                    <li> <a href="{{url('game/electronics')}}">electronics</a> </li>
+                                    <li> <a href="{{url('game/eating')}}">eating and drinking</a> </li>
+                                </ul>
+                            </li>
                             <li> <a href="{{route('buytokenview')}}">buy tokens</a> </li>
                             <li > <a style="text-transform: none" href="{{route('faq')}}">FAQ's</a> </li>
                             <li > <a style="text-transform: none" href="{{route('how_play')}}">how to play</a> </li>
@@ -278,28 +283,7 @@
                         </div>
                         
                 </div>
-                <script>
-                  $(document).ready(function() {
-                    // @foreach ($addprizes as $key=>$addprize)
-                    //     $('.<?php echo $key?>-flipTimer').flipTimer({ 
-
-                    //     // count up or countdown
-                    //     direction: 'down', 
-                    //     // the target <a href="https://www.jqueryscript.net/time-clock/">date</a>
-                    //     date: '{{$addprizes[$key]['start_time']}}',
-                      
-                    //     // callback works only with direction = "down"
-                    //     callback: function() { 
-
-                    //         $('.countdown-box-{{$key}}').attr('display', 'none');
-                    //         window.location.replace("{{url('/game/lifstyle')}}");
-                            
-                    //      }
-
-                    //     });
-                    // @endforeach
-                    });
-                   
+                <script>                 
                     var user_prize_spin_counts = {
                         "53": 2,
                         "51": 2,
