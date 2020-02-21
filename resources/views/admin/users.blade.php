@@ -78,19 +78,19 @@
                     <input type="email"  class="form-control" id="email">
                   </div>
                 </div>
-                <div class="row mg-t-20">
+                <!-- <div class="row mg-t-20">
                   <label class="col-sm-4 form-control-label">Instagram:</label>
                   <div class="col-sm-8 mg-t-10 mg-sm-t-0">
                     <input type="text" class="form-control" id="ins_username" >
                   </div>
-                </div>
+                </div> -->
                 <div class="row mg-t-20">
                   <label class="col-sm-4 form-control-label"> Available Tokens<span class="tx-danger">*</span>:</label>
                   <div class="col-sm-8 mg-t-10 mg-sm-t-0">
                     <input type="text" class="form-control" id="token_count" >
                   </div>
                 </div>
-                <div class="row mg-t-20">
+                <!-- <div class="row mg-t-20">
                   <label class="col-sm-4 form-control-label"> State:</label>
                   <div class="col-sm-8 mg-t-10 mg-sm-t-0">
                     <select class="form-control" id="state" data-placeholder="Choose state">
@@ -99,7 +99,7 @@
                         @endforeach
                     </select>
                   </div>
-                </div>
+                </div> -->
                 <div class="row mg-t-20">
                   <label class="col-sm-4 form-control-label"> activated<span class="tx-danger">*</span>:</label>
                   <div class="col-sm-8 mg-t-10 mg-sm-t-0">
@@ -173,7 +173,7 @@
         function edituser(id){
             $.getJSON( "{{route('admin.userinfojson')}}",{id:id,_token:$('meta[name=csrf-token]').attr("content")}, function( data ){
                 $('#id').val(data.id);
-                $('#name').val(data.name);
+                $('#name').val(data.firstname);
                 $('#email').val(data.email);
                 $('#ins_username').val(data.ins_username);
                 $('#state').val(data.state);
@@ -195,11 +195,11 @@
             $.post("{{route('admin.usereditaction')}}",{
                 _token:$('meta[name=csrf-token]').attr("content"),
                 id:$('#id').val(),
-                name:$('#name').val(),
+                firstname:$('#name').val(),
                 email:$('#email').val(),
                 activated:$('#activated').val(),
-                ins_username:$('#ins_username').val(),
-                state:$('#state').val(),
+                // ins_username:$('#ins_username').val(),
+                // state:$('#state').val(),
                 token_count:$('#token_count').val()
             },function(data){
                 if(data=="success"){

@@ -47,14 +47,14 @@ class UsermngController  extends Controller{
             echo "fail";exit;
         }
         $id = $request->input('id');
-        $name=$request->input('name');
+        $name=$request->input('firstname');
         $email = $request->input('email');
         $ins_username = $request->input('ins_username');
         $token_count = $request->input('token_count');
         $state = $request->input('state');
         $activated = $request->input('activated');
         try{
-            DB::update('UPDATE users SET name=?,email=?,ins_username=?,state=?,updated_at=?,token_count=?,activated=? WHERE id=?',[$name,$email,$ins_username,$state,date("Y-m-d H:i:s"),$token_count,$activated,$id]);
+            DB::update('UPDATE users SET firstname=?,email=?,updated_at=?,token_count=?,activated=? WHERE id=?',[$name,$email,date("Y-m-d H:i:s"),$token_count,$activated,$id]);
             echo "success";exit;
         } catch (Exception $ex) {
             echo "fail";exit;
