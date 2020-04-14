@@ -275,6 +275,16 @@ var prize_spinremain_count={{$prize_info->spin_count}};
     }
 </script>
 <style>
+.spin_padding{
+    padding-top: 0;
+}
+    .bottom_text{
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        width: 61%;
+    }
     .style-title-container{
         margin-top: -70px;
     }
@@ -283,24 +293,24 @@ var prize_spinremain_count={{$prize_info->spin_count}};
             margin-top: -30px;
         }
     }
-    #spinboard {
-        width: 30%;
+    /* #spinboard {
+        width: 100%;
         margin:0 auto;
         position: relative;
-    }
+    } */
     @media(max-width: 991px) {
-        #spinboard {
+        /* #spinboard {
             width: 60%;
             margin:0 auto;
             position: relative;
-        }
+        } */
     }
     @media(max-width: 767px) {
-        #spinboard {
-            width: 75%;
+        /* #spinboard {
+            width: 100%;
             margin:0 auto;
             position: relative;
-        }
+        } */
     }
     #spinboard > img.spin-bg-image {
         position: absolute;
@@ -343,6 +353,19 @@ var prize_spinremain_count={{$prize_info->spin_count}};
             font-size: 16pt;
             color: #fff;
         }
+        .col-md-4.spinroom-gamename {
+            top: 62%;
+            font-size: 20px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+        .bottom_text {
+    top: 74%;}
+        .spin_padding{
+            padding: 60px;
+            padding-top: 0;
+        }
     }
     .spin_message{
         width:50%
@@ -351,8 +374,34 @@ var prize_spinremain_count={{$prize_info->spin_count}};
         .spin_message{
             width:70%
         }
+        .spinroom-gamename {
+    margin-right: auto;
+    margin-top: 8rem;}
+    }
+    @media(max-width: 767px) {
+        .col-md-4.spinroom-gamename {
+            top: 61%;
+            font-size: 14px;}
+        .bottom_text {
+            top: 71%;
+        }
+    }
+    @media(max-width: 360px) {
+        .col-md-4.spinroom-gamename {
+            margin-top: 6.5rem;
+        }
     }
 
+    @media(max-width: 360px) {
+        .col-md-4.spinroom-gamename {
+            margin-top: 6.5rem;
+        }
+    }
+    
+    .spin-home{
+        padding-top: 0;
+        min-height: 45vh;
+    }
 </style>
 <audio id="audio_jackpot">
     <source src="/music/jackpot.mpeg">
@@ -384,14 +433,12 @@ var prize_spinremain_count={{$prize_info->spin_count}};
     <div class="home_container">
         <div class="logo-container" style="margin-top: 0px">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-5">
                 </div>
                 <div class="col-md-2 spinroom-logo">
                     <img src="{{asset('/html/images/logo_d.png')}}"  alt="spinroom-logo">
                 </div>
-                <div class="col-md-6 spinroom-gamename">
-                    <span>You are going to play {{$prize_info->prize_name}}</span>
-                </div>
+                
                 
             </div>
             <div><img class="spin_message"  src="/images/spin_message.png" alt=""></div>
@@ -409,16 +456,44 @@ var prize_spinremain_count={{$prize_info->spin_count}};
             <p>TIMER FOR GAME: <span style="font-weight: bold;">00:00</span> (24 HOURS)</p>
             -->
         </div>
-        <div class="circle-img-container" >
-            <img id="spiner" src="{{asset('images/spin_circle.png')}}" style="cursor:pointer">
-            <div id="spinboard" class="spin-container" style="display:none">
-                <img src="/images/turn_bg_spin_room.png" class="spin-bg-image" alt="">
-                <img src="/images/turning_spin.png" id="spin-turnning-image" class="spin-turnning-image"  alt="">
-                <img src="/images/spin_pin.png" class="spin-pin-image"  alt="">
+        <div class="row circle-img-container" >
+            <div class="col-md-4"></div>
+            <div class="col-md-4 spin_padding">
+               
+                <!-- <div id="spinboard" class="spin-container" style="display:none">
+                    <img src="{{asset('images/turn_bg_spin_room.png')}}" class="spin-bg-image" alt="">
+                    <img src="{{asset('images/turning_spin.png')}}" id="spin-turnning-image" class="spin-turnning-image"  alt="">
+                    <img src="{{asset('images/spin_pin.png')}}" class="spin-pin-image"  alt="">
+                </div>
+                 <img id="spiner" src="{{asset('images/spin_circle.png')}}" style="width: 100%; cursor:pointer" alt=""> -->
+                 <div class="row certain-container">
+                                    <div class="home_container spin-home">
+                                        <div class="circle-img-container" style="text-align: center;">
+                                            <div id="spinboard" class="spin-container" style="display:none;width: 100%;margin: 0px auto;position: absolute;margin-left: 0px;">
+                                                <img src="/images/turn_bg_spin_room.png" class="spin-bg-image" alt="">
+                                                <img src="/images/turning_spin.png" id="spin-turnning-image"
+                                                    class="spin-turnning-image" alt="">
+                                                <img src="/images/spin_pin.png" class="spin-pin-image" alt="">
+                                            </div>
+                                            <img id="spiner" src="{{asset('images/spin_circle.png')}}"
+                                                style="cursor:pointer; width:100%">
+                                            
+                                        </div>
+
+                                    </div>
+                </div> 
+            </div>
+
+
+
+
+
+            <div class="col-md-4 spinroom-gamename">
+                <span>You are playing for {{$prize_info->prize_name}}</span>
             </div>
         </div>
-        <div class="text-container">
-            <img src="{{asset('images/home_bottom_text.png')}}" alt="">
+        <div class="text-container" style="top:0;">
+            <img src="{{asset('images/home_bottom_text.png')}}" class="bottom_text" alt="">
         </div>
     </div>
 </div>

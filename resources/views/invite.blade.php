@@ -187,7 +187,7 @@
 
                                             Write email addresses of friends separated by commas in recipients box below.<br>
 
-                                            For every friend that signs up and plays you will receive a free spin!</span>
+                                            For every friend that signs up and plays you will receive a free token!</span>
                                 </div>
                                 <br>
                                 <div class="form-group">
@@ -203,10 +203,7 @@
                                 <button type="submit" class="btn btn-primary">Send Invite</button>
                             </form>
                         </div>
-                        <div style="color: gold; text-align: center; font-weight: 800; font-size: x-large">
-                            <p>Please Invite your friends.</p>
-                            <p>When your friends login our site, we will provide you free spin.</p>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

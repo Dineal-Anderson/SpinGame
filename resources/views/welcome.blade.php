@@ -575,7 +575,14 @@
             display:none;
         }
         }
-
+        @media screen and (max-width: 375px) , screen and (max-height: 812px){
+            .scrolling_img, .static_img {
+                height: 180px;
+            }
+            .cat-r, .cat-l {
+                width: 90px;
+            }
+        }
         body {
             background: #0051ad;
         }
@@ -769,7 +776,7 @@
                                     @if(isset($winners))
                                         @foreach($winners as $winner)
                                         <tr>
-                                            <td>{{$winner->email}}, {{$winner->firstname}}{{$winner->lastname}}</td>
+                                            <td>{{$winner->firstname}}{{$winner->lastname}}</td>
                                         </tr>
                                         @endforeach
                                     @endif
