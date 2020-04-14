@@ -378,7 +378,7 @@ dl, ol, ul {
                         <caption>
                         <!-- <img src="{{asset('html/images/for_darshboard_table.png')}}" style="    margin-bottom: 5px;
                             border-bottom: 2px solid #fff;" alt="" /> -->
-                           <span style="color: #feee8d; font-size: 1.2rem">Prizes Won</span>
+                           <span style="color: #fefeee; font-size: 1.2rem">Prizes Won</span>
                         </caption>
                         <div class="row">
                             <div class="col-md-1"></div>
